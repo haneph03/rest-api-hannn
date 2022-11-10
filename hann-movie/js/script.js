@@ -4,8 +4,8 @@ function searchMovie (){
         type:'get',
         dataType:'json',
         data:{
-            'apikey':'a130885',
-            's': $('#search-input').val()
+            'apikey':'a130885',           //key
+            's': $('#search-input').val() //parameter
         },
         success:function(result){
             if(result.Response == "True"){
@@ -56,7 +56,27 @@ $('#movie-list').on('click','.see-detail',function(){
             'i': $(this).data('id')
         },
         success:function(movie){
-           
+           if(movie.Response === "True"){
+            
+            $('.detail_modal').html(movie.Title);
+            $('.modal-body').html(`
+                <div class="container-fluid">
+                    <div class="row"> 
+                        <div class="col-md-4"> 
+                            <img src="`+movie.Poster+`" class="img-fluid">
+                        </div>
+                        <div class="col-md-8"> 
+                            <ul class="list-group">
+                                <li class="list-group-item"><h3>`+movie.Title+`</h3></li>
+                                <li class="list-group-item">Genre :`+movie.Genre+`</li>
+                                <li class="list-group-item">Director :`+movie.Director+`</li>
+                                <li class="list-group-item">Actor :`+movie.Actors+`</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `);
+           }
         }
     });
 });
