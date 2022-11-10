@@ -1,0 +1,25 @@
+[
+    {
+    "nama" : "Hanip",
+    "umur" : 25,
+    "nip" : "3130015006",
+    "lulus" : true,
+    "hobby" : ["coding","gamming"],
+    "pembimbing" : {
+        "pembimbing1" : "rpn",
+        "pembimbing2" : "istas"
+        }
+    }
+    ,
+    {
+        "nama" : "Hanip syahbandi",
+        "umur" : 25,
+        "nip" : "3130015006",
+        "lulus" : true,
+        "hobby" : ["coding","gamming"],
+        "pembimbing" : {
+            "pembimbing1" : "rpn",
+            "pembimbing2" : "istas"
+        }
+    }
+]
