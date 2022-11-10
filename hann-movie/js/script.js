@@ -19,7 +19,7 @@ function searchMovie (){
                             <div class="card-body">
                             <h5 class="card-title">`+data.Title+`</h5>
                             <h6 class="card-subtitle mb-2 text-muted">`+data.Year+`</h6>
-                            <a href="#" class="card-link see-detail"  data-toggle="modal" data-target="#exampleModal" data-id="`+data.imdbID+`">See Detail</a>
+                            <a href="#" class="card-link see-detail"  data-toggle="modal" data-target="#exampleModal" data-id="`+ data.imdbID +`">See Detail</a>
                             </div>
                             </div>
                         </div>
@@ -38,14 +38,25 @@ function searchMovie (){
 }
 $('#search-button').on('click',function(){
     searchMovie();
-})
+});
 
 $('#search-input').on('keyup',function(e){
     if(e.keyCode === 13){
         searchMovie();
     }
-})
+});
 
-$('.see-detail').on('click',function(){
-    alert($(this).data('id'));
+$('#movie-list').on('click','.see-detail',function(){
+    $.ajax({
+        url:'http://www.omdbapi.com',
+        type:'get',
+        dataType:'json',
+        data:{
+            'apikey':'a130885',
+            'i': $(this).data('id')
+        },
+        success:function(movie){
+           
+        }
+    });
 });
